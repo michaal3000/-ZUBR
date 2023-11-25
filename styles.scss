@@ -1,0 +1,286 @@
+$vlightgreen: #14787d;
+$lightgreen: #0a5e5b;
+$mediumgreen: #05514a;
+$darkgreen: #004439;
+$lightbrown: #72411b;
+$mediumbrown: #592f0f;
+$darkbrown: #3d1a00;
+$text: #fff;
+
+body {
+  height: 100vh;
+
+  margin: 0;
+
+  // background-image: url("https://modernfarmer.com/wp-content/uploads/2015/01/cow.jpg");
+  // background-size: cover;
+  // background-repeat: no-repeat;
+  // background-attachment: fixed;
+  // backdrop-filter: blur(8px);
+}
+
+#background {
+  z-index: -1;
+  width: 100vw;
+  background: linear-gradient(
+    340deg,
+    $darkgreen,
+    $mediumgreen,
+    $lightgreen,
+    $vlightgreen
+  );
+  height: 400vh;
+  background-size: 130% 130%;
+  animation: gradient-animation 6s ease infinite;
+  position: absolute;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// #####NAVBAR#####
+header {
+  position: fixed;
+  top: 0;
+  background-color: $lightbrown;
+  border-bottom: 5px solid $darkbrown;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  #logo {
+    margin: 20px;
+    font-size: 2rem;
+    font-weight: 700;
+    color: goldenrod;
+    text-decoration: underline;
+  }
+
+  .nav-links a {
+    margin: 20px;
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: $darkbrown;
+  }
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+
+  .section {
+    height: calc(100vh - 70px);
+    padding-top: 70px;
+  }
+}
+
+.homep {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .home-title {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  .text-container {
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    justify-content: center;
+
+    p {
+      margin: 5px;
+    }
+
+    #uptext {
+      font-size: calc((5rem / 1.618) / 1.618);
+      color: $darkbrown;
+    }
+
+    #midtext {
+      font-size: 5rem;
+      color: goldenrod;
+    }
+
+    #bottext {
+      font-size: calc(5rem / 1.618);
+      color: $darkbrown;
+    }
+  }
+
+  .description {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    img {
+      border-radius: 50%;
+      border: solid $darkbrown 3px;
+      width: 40%;
+      height: 40%;
+    }
+
+    p {
+      font-size: 1.5rem;
+      color: $darkbrown;
+
+      border-radius: 10px;
+      padding: 10px;
+      margin: 20px;
+    }
+  }
+}
+
+.info {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px red;
+
+  .info-header {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+
+    h2 {
+      font-size: 3rem;
+      color: $darkbrown;
+    }
+
+    #live-dot {
+      width: 10px; /* Size of the dot */
+      height: 10px; /* Size of the dot */
+      background-color: red; /* Dot color */
+      border-radius: 50%; /* Makes it circular */
+      animation: pulse 1s infinite; /* Apply the animation */
+      margin-left: 10px;
+      z-index: -0.5;
+    }
+
+    @keyframes pulse {
+      0% {
+        transform: scale(1); /* Original size */
+        opacity: 1; /* Fully visible */
+      }
+      50% {
+        transform: scale(1.5); /* Increase size */
+        opacity: 0.5; /* Slightly transparent */
+      }
+      100% {
+        transform: scale(1); /* Back to original size */
+        opacity: 1; /* Fully visible */
+      }
+    }
+  }
+
+  .crypto-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    padding-bottom: 20%;
+
+    #crypto-table {
+      border: 5px $darkgreen solid;
+      border-collapse: collapse;
+
+      th,
+      td {
+        border: 2px $darkgreen solid;
+        padding: 5px;
+        font-size: 1.4rem;
+        color: $darkbrown;
+        font-weight: 700;
+        background-color: $vlightgreen;
+      }
+
+      .positive-change {
+        background-color: green;
+        color: #000;
+      }
+
+      .negative-change {
+        background-color: red;
+        color: #fff;
+      }
+
+      th {
+        padding: 10px;
+        background-color: $mediumgreen;
+        font-size: 1.6rem;
+      }
+    }
+
+    .search {
+      margin-left: 10%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-around;
+      width: 40%;
+
+      h2 {
+        width: 100%;
+      }
+
+      .container-input {
+        position: relative;
+
+        .input {
+          width: 150px;
+          padding: 10px 0px 10px 40px;
+          border-radius: 9999px;
+          border: solid 1px #333;
+          transition: all 0.2s ease-in-out;
+          outline: none;
+          opacity: 0.8;
+        }
+
+        svg {
+          position: absolute;
+          top: 50%;
+          left: 10px;
+          transform: translate(0, -50%);
+        }
+
+        .input:focus {
+          opacity: 1;
+          width: 250px;
+        }
+      }
+      button {
+        margin-top: 10px;
+        border: solid $darkgreen 5px;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: $lightgreen;
+        color: $darkbrown;
+        font-weight: 700;
+      }
+    }
+  }
+}

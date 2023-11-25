@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="styles.css" />
+    <title>$ZUBR</title>
+  </head>
+
+  <body>
+    <div id="background"></div>
+    <header>
+      <div>
+        <a id="logo">$ZUBR</a>
+      </div>
+      <div class="nav-links">
+        <a href="">Home</a>
+        <a href="">Live data</a>
+        <a href="">Ambassadors</a>
+        <a href="">Wildlife</a>
+      </div>
+    </header>
+    <main>
+      <div class="section homep">
+        <div class="home-title">
+          <div class="text-container">
+            <p id="uptext">New ground-breaking technology</p>
+            <p id="midtext">$ZUBR</p>
+            <p id="bottext">
+              Get on it before<br />
+              everybody else!
+            </p>
+          </div>
+        </div>
+        <div class="description">
+          <img src="./logoZ.png" />
+          <p>
+            Venture into the crypto wilderness with a pioneering crypto project
+            that stands as the majestic european bison of the digital finance
+            forest. Just as the bison navigates the vast forest with strength
+            and wisdom, this project charts a path through the digital asset
+            landscape with robust security and intelligent innovation. Each
+            transaction and investment within this ecosystem is a powerful step,
+            echoing the bison's mighty presence, creating ripples of growth and
+            stability. In this realm, your assets grow with the might and grace
+            of the forest's largest inhabitant, promising a future where
+            financial prowess and digital innovation stride forward, side by
+            side."
+          </p>
+        </div>
+      </div>
+      <div class="section info">
+        <div class="info-header">
+          <h2>Live info from forest</h2>
+          <div id="live-dot"></div>
+        </div>
+        <div class="crypto-container">
+          <table id="crypto-table">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Name</th>
+                <th>Symbol</th>
+                <th>Price (USD)</th>
+                <!-- <th>Market Cap</th>
+                    <th>Volume (24Hr)</th>
+                    <th>Supply</th> -->
+                <th>Change (24Hr)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <!-- Data rows -->
+            </tbody>
+          </table>
+          <div class="search">
+            <h2>Find current price</h2>
+            <div class="container-input">
+              <input
+                type="text"
+                placeholder="Name or symbol"
+                name="text"
+                class="input"
+              />
+              <svg
+                fill="#000000"
+                width="20px"
+                height="20px"
+                viewBox="0 0 1920 1920"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M790.588 1468.235c-373.722 0-677.647-303.924-677.647-677.647 0-373.722 303.925-677.647 677.647-677.647 373.723 0 677.647 303.925 677.647 677.647 0 373.723-303.924 677.647-677.647 677.647Zm596.781-160.715c120.396-138.692 193.807-319.285 193.807-516.932C1581.176 354.748 1226.428 0 790.588 0S0 354.748 0 790.588s354.748 790.588 790.588 790.588c197.647 0 378.24-73.411 516.932-193.807l516.028 516.142 79.963-79.963-516.142-516.028Z"
+                  fill-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+
+            <button id="search">Search</button>
+            <div class="result"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section ambassadors"></div>
+      <div class="section wildlife"></div>
+    </main>
+    <footer>
+      <p>
+        The content is for informational purposes only, you should not construe
+        any such information or other as material financial advice.
+      </p>
+    </footer>
+    <script src="script.js"></script>
+  </body>
+</html>

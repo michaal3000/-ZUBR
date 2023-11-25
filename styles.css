@@ -1,0 +1,233 @@
+body {
+  height: 100vh;
+  margin: 0;
+}
+
+#background {
+  z-index: -1;
+  width: 100vw;
+  background: linear-gradient(340deg, #004439, #05514a, #0a5e5b, #14787d);
+  height: 400vh;
+  background-size: 130% 130%;
+  animation: gradient-animation 6s ease infinite;
+  position: absolute;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+header {
+  position: fixed;
+  top: 0;
+  background-color: #72411b;
+  border-bottom: 5px solid #3d1a00;
+  width: 100%;
+  height: 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+header #logo {
+  margin: 20px;
+  font-size: 2rem;
+  font-weight: 700;
+  color: goldenrod;
+  text-decoration: underline;
+}
+header .nav-links a {
+  margin: 20px;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #3d1a00;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  overflow-y: auto;
+}
+main .section {
+  height: calc(100vh - 70px);
+  padding-top: 70px;
+}
+
+.homep {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.homep .home-title {
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+  justify-content: space-around;
+  align-items: center;
+}
+.homep .text-container {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  justify-content: center;
+}
+.homep .text-container p {
+  margin: 5px;
+}
+.homep .text-container #uptext {
+  font-size: 1.9099102953rem;
+  color: #3d1a00;
+}
+.homep .text-container #midtext {
+  font-size: 5rem;
+  color: goldenrod;
+}
+.homep .text-container #bottext {
+  font-size: 3.0902348578rem;
+  color: #3d1a00;
+}
+.homep .description {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.homep .description img {
+  border-radius: 50%;
+  border: solid #3d1a00 3px;
+  width: 40%;
+  height: 40%;
+}
+.homep .description p {
+  font-size: 1.5rem;
+  color: #3d1a00;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 20px;
+}
+
+.info {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border: solid 1px red;
+}
+.info .info-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.info .info-header h2 {
+  font-size: 3rem;
+  color: #3d1a00;
+}
+.info .info-header #live-dot {
+  width: 10px; /* Size of the dot */
+  height: 10px; /* Size of the dot */
+  background-color: red; /* Dot color */
+  border-radius: 50%; /* Makes it circular */
+  animation: pulse 1s infinite; /* Apply the animation */
+  margin-left: 10px;
+  z-index: -0.5;
+}
+@keyframes pulse {
+  0% {
+    transform: scale(1); /* Original size */
+    opacity: 1; /* Fully visible */
+  }
+  50% {
+    transform: scale(1.5); /* Increase size */
+    opacity: 0.5; /* Slightly transparent */
+  }
+  100% {
+    transform: scale(1); /* Back to original size */
+    opacity: 1; /* Fully visible */
+  }
+}
+.info .crypto-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 20%;
+}
+.info .crypto-container #crypto-table {
+  border: 5px #004439 solid;
+  border-collapse: collapse;
+}
+.info .crypto-container #crypto-table th,
+.info .crypto-container #crypto-table td {
+  border: 2px #004439 solid;
+  padding: 5px;
+  font-size: 1.4rem;
+  color: #3d1a00;
+  font-weight: 700;
+  background-color: #14787d;
+}
+.info .crypto-container #crypto-table .positive-change {
+  background-color: green;
+  color: #000;
+}
+.info .crypto-container #crypto-table .negative-change {
+  background-color: red;
+  color: #fff;
+}
+.info .crypto-container #crypto-table th {
+  padding: 10px;
+  background-color: #05514a;
+  font-size: 1.6rem;
+}
+.info .crypto-container .search {
+  margin-left: 10%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  width: 40%;
+}
+.info .crypto-container .search h2 {
+  width: 100%;
+}
+.info .crypto-container .search .container-input {
+  position: relative;
+}
+.info .crypto-container .search .container-input .input {
+  width: 150px;
+  padding: 10px 0px 10px 40px;
+  border-radius: 9999px;
+  border: solid 1px #333;
+  transition: all 0.2s ease-in-out;
+  outline: none;
+  opacity: 0.8;
+}
+.info .crypto-container .search .container-input svg {
+  position: absolute;
+  top: 50%;
+  left: 10px;
+  transform: translate(0, -50%);
+}
+.info .crypto-container .search .container-input .input:focus {
+  opacity: 1;
+  width: 250px;
+}
+.info .crypto-container .search button {
+  margin-top: 10px;
+  border: solid #004439 5px;
+  padding: 5px;
+  border-radius: 10px;
+  background-color: #0a5e5b;
+  color: #3d1a00;
+  font-weight: 700;
+}/*# sourceMappingURL=styles.css.map */
