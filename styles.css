@@ -106,6 +106,9 @@ main .section {
   border: solid #3d1a00 3px;
   width: 40%;
   height: 40%;
+  box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+  -webkit-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+  -moz-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
 }
 .homep .description p {
   font-size: 1.5rem;
@@ -132,6 +135,7 @@ main .section {
 .info .info-header h2 {
   font-size: 3rem;
   color: #3d1a00;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
 }
 .info .info-header #live-dot {
   width: 10px; /* Size of the dot */
@@ -164,8 +168,11 @@ main .section {
   padding-bottom: 20%;
 }
 .info .crypto-container #crypto-table {
-  border: 5px #004439 solid;
+  border: 5px #1bfd9c solid;
   border-collapse: collapse;
+  box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+  -webkit-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+  -moz-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
 }
 .info .crypto-container #crypto-table th,
 .info .crypto-container #crypto-table td {
@@ -200,34 +207,36 @@ main .section {
 .info .crypto-container .search h2 {
   width: 100%;
 }
-.info .crypto-container .search .container-input {
-  position: relative;
-}
-.info .crypto-container .search .container-input .input {
-  width: 150px;
-  padding: 10px 0px 10px 40px;
-  border-radius: 9999px;
-  border: solid 1px #333;
-  transition: all 0.2s ease-in-out;
-  outline: none;
-  opacity: 0.8;
-}
-.info .crypto-container .search .container-input svg {
-  position: absolute;
-  top: 50%;
-  left: 10px;
-  transform: translate(0, -50%);
-}
-.info .crypto-container .search .container-input .input:focus {
-  opacity: 1;
-  width: 250px;
-}
-.info .crypto-container .search button {
+.info .crypto-container button {
   margin-top: 10px;
-  border: solid #004439 5px;
-  padding: 5px;
-  border-radius: 10px;
-  background-color: #0a5e5b;
-  color: #3d1a00;
-  font-weight: 700;
+  font-size: 15px;
+  padding: 0.7em 2.7em;
+  letter-spacing: 0.06em;
+  position: relative;
+  font-family: inherit;
+  border-radius: 0.6em;
+  overflow: hidden;
+  transition: all 0.3s;
+  line-height: 1.4em;
+  border: 2px solid #1bfd9c;
+  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 253, 156, 0.1) 100%);
+  color: #1bfd9c;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+}
+.info .crypto-container button:hover {
+  color: #82ffc9;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+}
+.info .crypto-container button:before {
+  content: "";
+  position: absolute;
+  left: -4em;
+  width: 4em;
+  height: 100%;
+  top: 0;
+  transition: transform 0.4s ease-in-out;
+  background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%, rgba(27, 253, 156, 0.1) 60%, transparent 100%);
+}
+.info .crypto-container button:hover:before {
+  transform: translateX(15em);
 }/*# sourceMappingURL=styles.css.map */

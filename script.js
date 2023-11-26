@@ -47,6 +47,63 @@ function populateTable(coins) {
   });
 }
 
+document.addEventListener("DOMContentLoaded", function () {
+  const apiUrl = "https://api.coincap.io/v2/assets";
+  const apiKey = "your_api_key"; // Replace with your actual API key
+
+  // Event listener for the search button
+  document
+    .getElementById("searchButton")
+    .addEventListener("click", function () {
+      const searchTerm = document
+        .getElementById("searchInput")
+        .value.trim()
+        .toLowerCase();
+      if (!searchTerm) {
+        alert("Please enter a name or symbol to search.");
+        return;
+      }
+
+      fetch(apiUrl, {
+        method: "GET",
+        redirect: "follow",
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          "Content-Type": "application/json",
+        },
+      })
+        .then((response) => {
+          if (!response.ok) {
+            throw new Error(`HTTP error! Status: ${response.status}`);
+          }
+          return response.json();
+        })
+        .then((data) => {
+          const coin = data.data.find(
+            (coin) =>
+              coin.name.toLowerCase() === searchTerm ||
+              coin.symbol.toLowerCase() === searchTerm
+          );
+          displayResult(coin);
+        })
+        .catch((error) => {
+          console.error("Error fetching data:", error);
+        });
+    });
+});
+
+function displayResult(coin) {
+  const resultDiv = document.getElementById("result");
+  if (coin) {
+    resultDiv.textContent = `Price of ${coin.name} (${
+      coin.symbol
+    }): $${parseFloat(coin.priceUsd).toFixed(2)}`;
+  } else {
+    resultDiv.textContent =
+      "Coin not found. Please try another name or symbol.";
+  }
+}
+
 //<td>${parseFloat(coin.marketCapUsd).toFixed(2)}</td>
 //<td>${parseFloat(coin.volumeUsd24Hr).toFixed(2)}</td>
 //<td>${parseFloat(coin.supply).toFixed(2)}</td>
