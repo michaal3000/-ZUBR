@@ -85,6 +85,7 @@ main .section {
 .homep .text-container #uptext {
   font-size: 1.9099102953rem;
   color: #3d1a00;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
 }
 .homep .text-container #midtext {
   font-size: 5rem;
@@ -93,6 +94,7 @@ main .section {
 .homep .text-container #bottext {
   font-size: 3.0902348578rem;
   color: #3d1a00;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
 }
 .homep .description {
   width: 50%;
@@ -170,18 +172,16 @@ main .section {
 .info .crypto-container #crypto-table {
   border: 5px #1bfd9c solid;
   border-collapse: collapse;
+  width: 55%;
   box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
   -webkit-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
-  -moz-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
-}
-.info .crypto-container #crypto-table th,
-.info .crypto-container #crypto-table td {
-  border: 2px #004439 solid;
-  padding: 5px;
-  font-size: 1.4rem;
-  color: #3d1a00;
-  font-weight: 700;
-  background-color: #14787d;
+  -moz-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79) th, td;
+  -moz-box-shadow-border: 2px #004439 solid;
+  -moz-box-shadow-padding: 5px;
+  -moz-box-shadow-font-size: 1.4rem;
+  -moz-box-shadow-color: #3d1a00;
+  -moz-box-shadow-font-weight: 700;
+  -moz-box-shadow-background-color: #14787d;
 }
 .info .crypto-container #crypto-table .positive-change {
   background-color: green;
@@ -197,17 +197,30 @@ main .section {
   font-size: 1.6rem;
 }
 .info .crypto-container .search {
-  margin-left: 10%;
+  margin-left: 20px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
+  justify-content: center;
   width: 40%;
 }
-.info .crypto-container .search h2 {
-  width: 100%;
+.info .crypto-container .search #search-title {
+  font-size: 2.5rem;
+  color: #000;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
 }
-.info .crypto-container button {
+.info .crypto-container .search .container-input {
+  padding: 10px;
+  background-color: #0a5e5b;
+  border-radius: 0.6em;
+  border: solid #1bfd9c 2px;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+}
+.info .crypto-container .search .container-input input {
+  font-size: 1.4rem;
+  outline: none;
+}
+.info .crypto-container .search button {
   margin-top: 10px;
   font-size: 15px;
   padding: 0.7em 2.7em;
@@ -223,11 +236,11 @@ main .section {
   color: #1bfd9c;
   box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
 }
-.info .crypto-container button:hover {
+.info .crypto-container .search button:hover {
   color: #82ffc9;
   box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
 }
-.info .crypto-container button:before {
+.info .crypto-container .search button:before {
   content: "";
   position: absolute;
   left: -4em;
@@ -237,6 +250,17 @@ main .section {
   transition: transform 0.4s ease-in-out;
   background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%, rgba(27, 253, 156, 0.1) 60%, transparent 100%);
 }
-.info .crypto-container button:hover:before {
+.info .crypto-container .search button:hover:before {
   transform: translateX(15em);
+}
+.info .crypto-container #result {
+  margin-top: 20px;
+  padding: 10px;
+  background-color: #05514a;
+  border-radius: 0.6em;
+  border: solid #1bfd9c 2px;
+  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+  font-size: 1.4rem;
+  color: #000;
+  font-weight: 700;
 }/*# sourceMappingURL=styles.css.map */
