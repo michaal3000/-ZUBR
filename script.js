@@ -92,18 +92,32 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
+// function displayResult(coin) {
+//   const resultDiv = document.getElementById("result");
+//   if (coin) {
+//     resultDiv.textContent = `Price of ${coin.name} (${
+//       coin.symbol
+//     }): $${parseFloat(coin.priceUsd).toFixed(2)}`;
+//   } else {
+//     resultDiv.textContent =
+//       "Coin not found. Please try another name or symbol.";
+//   }
+// }
+
 function displayResult(coin) {
   const resultDiv = document.getElementById("result");
-  if (coin) {
-    resultDiv.textContent = `Price of ${coin.name} (${
-      coin.symbol
-    }): $${parseFloat(coin.priceUsd).toFixed(2)}`;
-  } else {
-    resultDiv.textContent =
-      "Coin not found. Please try another name or symbol.";
-  }
-}
+  resultDiv.innerHTML = ""; // Clear previous results
 
-//<td>${parseFloat(coin.marketCapUsd).toFixed(2)}</td>
-//<td>${parseFloat(coin.volumeUsd24Hr).toFixed(2)}</td>
-//<td>${parseFloat(coin.supply).toFixed(2)}</td>
+  const p = document.createElement("p");
+  p.id = "searchResult"; // Setting the id of the paragraph
+
+  if (coin) {
+    p.textContent = `Price of ${coin.name} (${coin.symbol}): $${parseFloat(
+      coin.priceUsd
+    ).toFixed(2)}`;
+  } else {
+    p.textContent = "Coin not found. Please try another name or symbol.";
+  }
+
+  resultDiv.appendChild(p);
+}

@@ -1,5 +1,5 @@
 body {
-  height: 100vh;
+  height: auto;
   margin: 0;
 }
 
@@ -7,7 +7,7 @@ body {
   z-index: -1;
   width: 100vw;
   background: linear-gradient(340deg, #004439, #05514a, #0a5e5b, #14787d);
-  height: 400vh;
+  height: 300vh;
   background-size: 130% 130%;
   animation: gradient-animation 6s ease infinite;
   position: absolute;
@@ -127,6 +127,7 @@ main .section {
   justify-content: space-between;
   align-items: center;
   border: solid 1px red;
+  overflow: hidden;
 }
 .info .info-header {
   display: flex;
@@ -253,7 +254,7 @@ main .section {
 .info .crypto-container .search button:hover:before {
   transform: translateX(15em);
 }
-.info .crypto-container #result {
+.info .crypto-container #searchResult {
   margin-top: 20px;
   padding: 10px;
   background-color: #05514a;
@@ -263,4 +264,17 @@ main .section {
   font-size: 1.4rem;
   color: #000;
   font-weight: 700;
+}
+
+footer {
+  position: relative;
+  bottom: 0;
+  border-top: 5px solid #3d1a00;
+  background-color: #0a5e5b;
+  color: #3d1a00;
+}
+footer p {
+  font-size: 1.4rem;
+  font-weight: 500;
+  letter-spacing: -1px;
 }/*# sourceMappingURL=styles.css.map */
