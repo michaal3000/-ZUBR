@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function () {
     method: "GET",
     redirect: "follow",
     headers: {
-      Authorization: `Bearer ${apiKey}`, // Adjust based on how the API expects the key
+      Authorization: `Bearer ${apiKey}`,
       "Content-Type": "application/json",
     },
   })
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", function () {
       return response.json();
     })
     .then((data) => {
-      // Access the inner 'data' array
       populateTable(data.data);
     })
     .catch((error) => {
@@ -29,7 +28,7 @@ function populateTable(coins) {
   const tableBody = document
     .getElementById("crypto-table")
     .getElementsByTagName("tbody")[0];
-  tableBody.innerHTML = ""; // Clear existing table data
+  tableBody.innerHTML = "";
 
   coins.slice(0, 10).forEach((coin) => {
     const changePercent = parseFloat(coin.changePercent24Hr).toFixed(2);
@@ -49,9 +48,8 @@ function populateTable(coins) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const apiUrl = "https://api.coincap.io/v2/assets";
-  const apiKey = "your_api_key"; // Replace with your actual API key
+  const apiKey = "your_api_key";
 
-  // Event listener for the search button
   document
     .getElementById("searchButton")
     .addEventListener("click", function () {
@@ -92,24 +90,12 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 });
 
-// function displayResult(coin) {
-//   const resultDiv = document.getElementById("result");
-//   if (coin) {
-//     resultDiv.textContent = `Price of ${coin.name} (${
-//       coin.symbol
-//     }): $${parseFloat(coin.priceUsd).toFixed(2)}`;
-//   } else {
-//     resultDiv.textContent =
-//       "Coin not found. Please try another name or symbol.";
-//   }
-// }
-
 function displayResult(coin) {
   const resultDiv = document.getElementById("result");
-  resultDiv.innerHTML = ""; // Clear previous results
+  resultDiv.innerHTML = "";
 
   const p = document.createElement("p");
-  p.id = "searchResult"; // Setting the id of the paragraph
+  p.id = "searchResult";
 
   if (coin) {
     p.textContent = `Price of ${coin.name} (${coin.symbol}): $${parseFloat(

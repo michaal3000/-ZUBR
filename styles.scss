@@ -9,14 +9,7 @@ $text: #fff;
 $bordergreen: #1bfd9c;
 
 body {
-  height: auto;
   margin: 0;
-
-  // background-image: url("https://modernfarmer.com/wp-content/uploads/2015/01/cow.jpg");
-  // background-size: cover;
-  // background-repeat: no-repeat;
-  // background-attachment: fixed;
-  // backdrop-filter: blur(8px);
 }
 
 #background {
@@ -179,27 +172,27 @@ main {
     }
 
     #live-dot {
-      width: 10px; /* Size of the dot */
-      height: 10px; /* Size of the dot */
-      background-color: red; /* Dot color */
-      border-radius: 50%; /* Makes it circular */
-      animation: pulse 1s infinite; /* Apply the animation */
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      border-radius: 50%;
+      animation: pulse 1s infinite;
       margin-left: 10px;
       z-index: -0.5;
     }
 
     @keyframes pulse {
       0% {
-        transform: scale(1); /* Original size */
-        opacity: 1; /* Fully visible */
+        transform: scale(1);
+        opacity: 1;
       }
       50% {
-        transform: scale(1.5); /* Increase size */
-        opacity: 0.5; /* Slightly transparent */
+        transform: scale(1.5);
+        opacity: 0.5;
       }
       100% {
-        transform: scale(1); /* Back to original size */
-        opacity: 1; /* Fully visible */
+        transform: scale(1);
+        opacity: 1;
       }
     }
   }
@@ -339,8 +332,9 @@ main {
 }
 
 footer {
-  position: relative;
-  bottom: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
   border-top: 5px solid $darkbrown;
   background-color: $lightgreen;
   color: $darkbrown;
