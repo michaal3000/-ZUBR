@@ -40,7 +40,8 @@ body {
   }
 }
 
-// #####NAVBAR#####
+// #####NAVBAR#########################
+
 header {
   position: fixed;
   top: 0;
@@ -79,6 +80,7 @@ main {
     padding-top: 70px;
   }
 }
+// #####HOME#########################
 
 .homep {
   display: flex;
@@ -149,6 +151,8 @@ main {
     }
   }
 }
+
+// #####INFO#########################
 
 .info {
   display: flex;
@@ -330,6 +334,8 @@ main {
     }
   }
 }
+
+// #####FOOTER#########################
 
 footer {
   display: flex;
