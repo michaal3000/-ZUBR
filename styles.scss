@@ -88,10 +88,11 @@ main {
   justify-content: space-between;
   align-items: center;
 
-  @media screen and (min-width: 992px) {
-    width: 970px;
-    background-color: green;
+  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    text-align: center;
   }
+
   .home-title {
     display: flex;
     flex-direction: column;
@@ -153,16 +154,6 @@ main {
       padding: 10px;
       margin: 20px;
     }
-  }
-}
-
-@media screen and (min-width: 992px) {
-  width: 970px;
-  background-color: green;
-
-  .homep {
-    flex-direction: column;
-    background-color: greenyellow;
   }
 }
 
