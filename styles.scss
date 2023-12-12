@@ -213,6 +213,11 @@ main {
     align-items: center;
     padding-bottom: 20%;
 
+    @media screen and (max-width: 768px) {
+      flex-direction: column;
+      text-align: center;
+    }
+
     #crypto-table {
       border: 5px $bordergreen solid;
       border-collapse: collapse;
