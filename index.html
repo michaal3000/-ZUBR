@@ -10,29 +10,30 @@
   </head>
 
   <body>
-    <div id="background"></div>
+
     <header>
-      <div>
-        <a id="logo">$ZUBR</a>
-      </div>
-      <div class="nav-links">
-        <a href="">Home</a>
-        <a href="">Live data</a>
-        <a href="">Ambassadors</a>
-        <a href="">Wildlife</a>
+      <div class="nav">
+        <div>
+          <a id="logo">$ZUBR</a>
+        </div>
+        <div class="nav-links">
+          <button id="home-button">Home</button>
+          <button >Live data</button>
+          <button >Roadmap</button>
+          <button >Wildlife</button>
+        </div>
       </div>
     </header>
-    <main>
-      <div class="section homep">
-        <div class="home-title">
-          <div class="text-container">
-            <p id="uptext">New ground-breaking technology</p>
-            <p id="midtext">$ZUBR</p>
-            <p id="bottext">
-              Get it before<br />
-              everybody else!
-            </p>
-          </div>
+
+    <main class="main">
+      <div class="homep" id="home-section">
+        <div class="text-container">
+          <p class="uptext">New ground-breaking technology</p>
+          <p class="midtext">$ZUBR</p>
+          <p class="bottext">
+            Get it before<br />
+            everybody else!
+          </p>
         </div>
         <div class="description">
           <img src="./logoZ.png" />
@@ -51,7 +52,7 @@
           </p>
         </div>
       </div>
-      <div class="section info">
+      <div class="info">
         <div class="info-header">
           <h2>Live info from forest</h2>
           <div id="live-dot"></div>
@@ -90,15 +91,22 @@
         </div>
       </div>
 
-      <!-- <div class="section ambassadors"></div>
-      <div class="section wildlife"></div> -->
+
+      <!-- <div class="wildlife"></div> -->
     </main>
+
     <footer>
-      <p>
-        The content is for informational purposes only, you should not construe
-        any such information or other as material financial advice.
-      </p>
+      <div class="footer-content">
+        <div class="copyright">2024</div>
+        <p>
+          The content is for informational purposes only, you should not construe
+          any such information or other as material financial advice.
+        </p>
+      </div>
     </footer>
+
+
+
     <script src="script.js"></script>
   </body>
 </html>

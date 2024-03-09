@@ -107,3 +107,9 @@ function displayResult(coin) {
 
   resultDiv.appendChild(p);
 }
+
+document.getElementById('home-button').addEventListener('click', function() {
+  document.querySelector('#home-section').scrollIntoView({
+    behavior: 'smooth'
+  });
+});

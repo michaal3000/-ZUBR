@@ -8,36 +8,67 @@ $darkbrown: #3d1a00;
 $text: #fff;
 $bordergreen: #1bfd9c;
 
+@keyframes gradient-animation {
+  0% {
+    background: linear-gradient(to right, #f7d9aa, #a9a5c1);
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background: linear-gradient(to right, #a9a5c1, #f7d9aa);
+    background-size: 200% 100%;
+    background-position: 100% 50%;
+  }
+  100% {
+    background: linear-gradient(to right, #f7d9aa, #a9a5c1);
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+  }
+}
+
+
 body {
   margin: 0;
 }
 
-#background {
-  z-index: -1;
-  width: 100vw;
-  background: linear-gradient(
-    340deg,
-    $darkgreen,
-    $mediumgreen,
-    $lightgreen,
-    $vlightgreen
-  );
-  height: 300vh;
-  background-size: 130% 130%;
-  animation: gradient-animation 6s ease infinite;
-  position: absolute;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: gradient-animation 8s infinite;
+  z-index: -1; 
 }
 
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
+.nav,
+.footer-content {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1400px;
+  margin: auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+
+.copyright {
+  position: relative;
+  margin-right: 24px;
+  
+  &::after {
+    content: " \00A9";
+    bottom: 4px;
+    position: absolute;
+    right: -12px;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+}
+
+button {
+  cursor: pointer;
 }
 
 // #####NAVBAR#########################
@@ -69,64 +100,52 @@ header {
   }
 }
 
-main {
+.main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow-y: auto;
-
-  .section {
-    height: calc(100vh - 70px);
-    padding-top: 70px;
-  }
+  max-width: 1280px;
+  background-color: white;
+  margin: auto;
 }
+
 // #####HOME#########################
 
 .homep {
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .home-title {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-content: space-around;
-    align-items: center;
-  }
+  padding-top: 80px;
 
   .text-container {
     display: flex;
     flex-direction: column;
-    align-items: end;
     justify-content: center;
+    width: 50%;
+    align-items: center;
+  }
 
-    p {
-      margin: 5px;
-    }
+  p {
+    margin: 5px;
+  }
 
-    #uptext {
-      font-size: calc((5rem / 1.618) / 1.618);
-      color: $darkbrown;
-      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
-    }
+  .uptext {
+    font-size: calc((5rem / 1.618) / 1.618);
+    color: $darkbrown;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
+    text-align: center;
+  }
 
-    #midtext {
-      font-size: 5rem;
-      color: goldenrod;
-    }
+  .midtext {
+    font-size: 5rem;
+    color: goldenrod;
+  }
 
-    #bottext {
-      font-size: calc(5rem / 1.618);
-      color: $darkbrown;
-      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
-    }
+  .bottext {
+    font-size: calc(5rem / 1.618);
+    color: $darkbrown;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
   }
 
   .description {
@@ -161,11 +180,9 @@ main {
 
 .info {
   display: flex;
-  width: 100%;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  border: solid 1px red;
   overflow: hidden;
 
   .info-header {
@@ -211,7 +228,6 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-bottom: 20%;
 
     @media screen and (max-width: 768px) {
       flex-direction: column;
@@ -352,12 +368,27 @@ footer {
   flex-direction: column;
   justify-content: flex-end;
   border-top: 5px solid $darkbrown;
-  background-color: $lightgreen;
   color: $darkbrown;
 
   p {
     font-size: 1.4rem;
     font-weight: 500;
     letter-spacing: -1px;
+  }
+}
+
+
+///Mobile
+@media screen and (max-width: 768px) {
+  .homep {
+  flex-direction: column;
+  text-align: center;
+  }
+
+  .homep {
+    .text-container,
+    .description {
+      width: 100%;
+    }
   }
 }
