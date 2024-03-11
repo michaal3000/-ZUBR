@@ -107,3 +107,32 @@ function displayResult(coin) {
 
   resultDiv.appendChild(p);
 }
+
+//scroll
+document.getElementById("home-button").addEventListener("click", function () {
+  document.querySelector("#home-section").scrollIntoView({
+    behavior: "smooth",
+  });
+});
+
+document.getElementById("info-button").addEventListener("click", function () {
+  document.querySelector("#info-section").scrollIntoView({
+    behavior: "smooth",
+  });
+});
+
+document
+  .getElementById("roadmap-button")
+  .addEventListener("click", function () {
+    document.querySelector("#roadmap-section").scrollIntoView({
+      behavior: "smooth",
+    });
+  });
+
+document
+  .getElementById("wildlife-button")
+  .addEventListener("click", function () {
+    document.querySelector("#wildlife-section").scrollIntoView({
+      behavior: "smooth",
+    });
+  });

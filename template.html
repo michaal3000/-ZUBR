@@ -1,0 +1,50 @@
+/////Button and div slides to area with JS
+
+<button id="home-button">Go to Home Section</button>
+
+<section id="home-section">
+  <!-- Content of the home section -->
+</section>
+
+document.getElementById('home-button').addEventListener('click', function() {
+  document.querySelector('#home-section').scrollIntoView({
+    behavior: 'smooth'
+  });
+});
+
+
+
+
+DOnt use extra divs when not needed also extra classes
+
+use only classes for ID !!!!
+
+when writing css seperate mobile and desktop (mobile come first)
+
+dont make static height, better make min height
+
+dont use % for height and width !!! better use pixels for that
+
+
+Inspec mode!!!!!!! master it
+
+also if u have overflow or problems with scale etc, delte divs 1 by 1 to find problem
+
+leasrn about ::before and ::after
+
+colors, maximum 4!
+
+min width 360px!!!! for mobile
+
+  max width for center 1280px ish (depends)
+
+
+
+  padding: 0 16px;
+  box-sizing: border-box; with box sizing padding is part of the size !!!
+
+
+
+  todo!
+  choose max 4 colors, not to contrasty
+  fix table to fit 360px on mobile

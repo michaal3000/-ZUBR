@@ -10,29 +10,30 @@
   </head>
 
   <body>
-    <div id="background"></div>
+
     <header>
-      <div>
-        <a id="logo">$ZUBR</a>
-      </div>
-      <div class="nav-links">
-        <a href="">Home</a>
-        <a href="">Live data</a>
-        <a href="">Ambassadors</a>
-        <a href="">Wildlife</a>
+      <div class="nav">
+        <div>
+          <a class="logo">$ZUBR</a>
+        </div>
+        <div class="nav-links">
+          <button class="nav-button" id="home-button">Home</button>
+          <button class="nav-button" id="info-button">Live data</button>
+          <button class="nav-button" id="roadmap-button" >Roadmap</button>
+          <button class="nav-button" id="wildlife-button" >Wildlife</button>
+        </div>
       </div>
     </header>
-    <main>
-      <div class="section homep">
-        <div class="home-title">
-          <div class="text-container">
-            <p id="uptext">New ground-breaking technology</p>
-            <p id="midtext">$ZUBR</p>
-            <p id="bottext">
-              Get it before<br />
-              everybody else!
-            </p>
-          </div>
+
+    <main class="main">
+      <div class="homep section" id="home-section">
+        <div class="text-container">
+          <p class="uptext">New ground-breaking technology</p>
+          <p class="midtext">$ZUBR</p>
+          <p class="bottext">
+            Get it before<br />
+            everybody else!
+          </p>
         </div>
         <div class="description">
           <img src="./logoZ.png" />
@@ -51,7 +52,7 @@
           </p>
         </div>
       </div>
-      <div class="section info">
+      <div class="info section" id="info-section">
         <div class="info-header">
           <h2>Live info from forest</h2>
           <div id="live-dot"></div>
@@ -89,16 +90,47 @@
             </div>
         </div>
       </div>
+      
 
-      <!-- <div class="section ambassadors"></div>
-      <div class="section wildlife"></div> -->
+      </div>
+      <div class="roadmap section" id="roadmap-section">
+        <div class="line"></div>
+        <div class="point">
+          <div class="date">Jan 2024</div>
+          <div class="description">Event 1</div>
+        </div>
+        <div class="point">
+          <div class="date">Mar 2024</div>
+          <div class="description">Event 2</div>
+        </div>
+        <div class="point">
+          <div class="date">Jun 2024</div>
+          <div class="description">Event 3</div>
+        </div>
+        <div class="point">
+          <div class="date">Sep 2024</div>
+          <div class="description">Event 4</div>
+        </div>
+        <div class="point">
+          <div class="date">Dec 2024</div>
+          <div class="description">Event 5</div>
+        </div>
+      </div>
+      <div class="wildlife section" id="wildlife-section">
     </main>
+
     <footer>
-      <p>
-        The content is for informational purposes only, you should not construe
-        any such information or other as material financial advice.
-      </p>
+      <div class="footer-content">
+        <div class="copyright">2024</div>
+        <p>
+          The content is for informational purposes only, you should not construe
+          any such information or other as material financial advice.
+        </p>
+      </div>
     </footer>
+
+
+
     <script src="script.js"></script>
   </body>
 </html>

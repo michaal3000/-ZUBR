@@ -1,43 +1,79 @@
 $vlightgreen: #14787d;
-$lightgreen: #0a5e5b;
-$mediumgreen: #05514a;
 $darkgreen: #004439;
 $lightbrown: #72411b;
-$mediumbrown: #592f0f;
 $darkbrown: #3d1a00;
 $text: #fff;
 $bordergreen: #1bfd9c;
+
+@keyframes gradient-animation {
+  0% {
+    background: linear-gradient(to right, $vlightgreen, $darkgreen);
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+  }
+  50% {
+    background: linear-gradient(to right, $darkgreen, $vlightgreen);
+    background-size: 200% 100%;
+    background-position: 100% 50%;
+  }
+  100% {
+    background: linear-gradient(to right, $vlightgreen, $darkgreen);
+    background-size: 200% 100%;
+    background-position: 0% 50%;
+  }
+}
+
+// Define mixin for wooden texture
+@mixin wooden-board {
+  background-color: $darkbrown; // Brown color for wooden texture
+  color: #fff; // Text color
+  border: none; // Remove default border
+  padding: 10px 30px; // Adjust padding as needed
+  border-radius: 5px; // Add border-radius for rounded corners
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5); // Add inset shadow for texture effect
+  margin-left: 12px;
+}
 
 body {
   margin: 0;
 }
 
-#background {
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  animation: gradient-animation 8s infinite;
   z-index: -1;
-  width: 100vw;
-  background: linear-gradient(
-    340deg,
-    $darkgreen,
-    $mediumgreen,
-    $lightgreen,
-    $vlightgreen
-  );
-  height: 300vh;
-  background-size: 130% 130%;
-  animation: gradient-animation 6s ease infinite;
-  position: absolute;
 }
 
-@keyframes gradient-animation {
-  0% {
-    background-position: 0% 50%;
+.nav {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.copyright {
+  position: relative;
+  margin-right: 24px;
+
+  &::after {
+    content: " \00A9";
+    bottom: 4px;
+    position: absolute;
+    right: -12px;
   }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
+}
+
+button {
+  cursor: pointer;
 }
 
 // #####NAVBAR#########################
@@ -53,7 +89,7 @@ header {
   justify-content: space-between;
   align-items: center;
 
-  #logo {
+  .logo {
     margin: 20px;
     font-size: 2rem;
     font-weight: 700;
@@ -61,72 +97,69 @@ header {
     text-decoration: underline;
   }
 
-  .nav-links a {
-    margin: 20px;
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: $darkbrown;
+  // Apply wooden-board mixin to button element
+  .nav-button {
+    @include wooden-board;
+    font-size: 16px; // Adjust font size as needed
+    cursor: pointer; // Add pointer cursor for usability
+    transition: background-color 0.3s ease; // Smooth transition for background-color change
+
+    &:hover {
+      background-color: $lightbrown; // Darker brown color on hover
+    }
   }
 }
 
-main {
+.main {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  overflow-y: auto;
-
-  .section {
-    height: calc(100vh - 70px);
-    padding-top: 70px;
-  }
+  max-width: 1280px;
+  margin: auto;
 }
+
+// .section {
+//   height: 100vw; // Adjust height as needed
+//   width: 100%;
+// }
+
 // #####HOME#########################
 
 .homep {
+  min-height: 100vh;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
-  @media screen and (max-width: 768px) {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .home-title {
-    display: flex;
-    flex-direction: column;
-    width: 50%;
-    justify-content: space-around;
-    align-items: center;
-  }
+  padding-top: 80px;
 
   .text-container {
     display: flex;
     flex-direction: column;
-    align-items: end;
     justify-content: center;
+    width: 50%;
+    align-items: center;
+  }
 
-    p {
-      margin: 5px;
-    }
+  p {
+    margin: 5px;
+  }
 
-    #uptext {
-      font-size: calc((5rem / 1.618) / 1.618);
-      color: $darkbrown;
-      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
-    }
+  .uptext {
+    font-size: calc((5rem / 1.618) / 1.618);
+    color: $darkbrown;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
+    text-align: center;
+  }
 
-    #midtext {
-      font-size: 5rem;
-      color: goldenrod;
-    }
+  .midtext {
+    font-size: 5rem;
+    color: goldenrod;
+  }
 
-    #bottext {
-      font-size: calc(5rem / 1.618);
-      color: $darkbrown;
-      text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
-    }
+  .bottext {
+    font-size: calc(5rem / 1.618);
+    color: $darkbrown;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
   }
 
   .description {
@@ -157,16 +190,16 @@ main {
   }
 }
 
-// #####INFO#########################
+// #####INFO############################################################################
 
 .info {
   display: flex;
-  width: 100%;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
-  border: solid 1px red;
   overflow: hidden;
+  background-color: yellowgreen;
+  min-height: 100vw;
 
   .info-header {
     display: flex;
@@ -211,7 +244,6 @@ main {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    padding-bottom: 20%;
 
     @media screen and (max-width: 768px) {
       flex-direction: column;
@@ -245,7 +277,7 @@ main {
 
       th {
         padding: 10px;
-        background-color: $mediumgreen;
+        background-color: $vlightgreen;
         font-size: 1.6rem;
       }
     }
@@ -266,7 +298,7 @@ main {
 
       .container-input {
         padding: 10px;
-        background-color: $lightgreen;
+        background-color: $vlightgreen;
         border-radius: 0.6em;
         border: solid $bordergreen 2px;
         box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4),
@@ -333,7 +365,7 @@ main {
     #searchResult {
       margin-top: 20px;
       padding: 10px;
-      background-color: $mediumgreen;
+      background-color: yellow;
       border-radius: 0.6em;
       border: solid $bordergreen 2px;
       box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4),
@@ -344,20 +376,68 @@ main {
     }
   }
 }
-
-// #####FOOTER#########################
-
-footer {
+// ############ROADMAP##########################################################
+.roadmap {
+  background-color: cyan;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
-  border-top: 5px solid $darkbrown;
-  background-color: $lightgreen;
-  color: $darkbrown;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  min-height: 100vw;
+  width: 1000px;
+  // height: 1000px;
+}
+// ############Wildlife##########################################################
+.wildlife {
+  background-color: darkgreen;
+  width: 1000px;
+  min-height: 100vw;
+  // height: 1000px;
+}
 
+// #####FOOTER##################################################################
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-top: 5px solid $darkbrown;
+  background-color: $lightbrown;
+  color: $text;
+  height: 40px;
+
+  .footer-content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1300px;
+    margin: auto;
+    padding: 0 16px;
+    box-sizing: border-box;
+  }
   p {
     font-size: 1.4rem;
     font-weight: 500;
     letter-spacing: -1px;
+  }
+}
+
+///Mobile
+@media screen and (max-width: 768px) {
+  .homep {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .homep {
+    .text-container,
+    .description {
+      width: 100%;
+    }
   }
 }
