@@ -387,13 +387,90 @@ header {
   min-height: 100vw;
   width: 1000px;
   // height: 1000px;
+
+  .line {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 2px; // Adjust line width as needed
+    background-color: #ccc; // Adjust line color as needed
+    transform: translateX(-50%);
+  }
+
+  .point {
+    position: relative;
+    margin-left: 20px; // Adjust distance from line as needed
+  }
+
+  .date {
+    left: -30px; // Adjust distance from point as needed
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: bold;
+    color: #333; // Adjust date color as needed
+  }
+
+  .description {
+    left: 20px; // Adjust distance from point as needed
+    top: 50%;
+    transform: translateY(-50%);
+    color: #333; // Adjust description color as needed
+  }
+
+  .point::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -10px; // Adjust position of the point as needed
+    width: 20px; // Adjust size of the point as needed
+    height: 20px; // Adjust size of the point as needed
+    border: 2px solid #ccc; // Adjust border color and width as needed
+    border-radius: 50%;
+    transform: translateY(-50%);
+  }
 }
 // ############Wildlife##########################################################
 .wildlife {
   background-color: darkgreen;
-  width: 1000px;
+
   min-height: 100vw;
   // height: 1000px;
+
+  .carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 600px; /* Adjust as needed */
+    margin: 0 auto;
+  }
+
+  .carousel {
+    display: flex;
+    overflow: hidden;
+  }
+
+  img {
+    width: 100%;
+    display: block;
+  }
+
+  .dots-container {
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .dot {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #bbb;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+  }
+
+  .dot.active {
+    background-color: #333;
+  }
 }
 
 // #####FOOTER##################################################################

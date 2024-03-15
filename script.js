@@ -1,3 +1,5 @@
+//table API + search
+
 document.addEventListener("DOMContentLoaded", function () {
   const apiUrl = "https://api.coincap.io/v2/assets";
   const apiKey = "d7f2848a-82cf-482d-a383-3f96e7814314";
@@ -136,3 +138,41 @@ document
       behavior: "smooth",
     });
   });
+
+//wildlife carousel
+document.addEventListener("DOMContentLoaded", function () {
+  const carousel = document.querySelector(".carousel");
+  const slides = document.querySelectorAll(".carousel img");
+  const dots = document.querySelectorAll(".dot");
+  let slideIndex = 0;
+
+  function showSlide(index) {
+    slides.forEach((slide) => {
+      slide.style.display = "none";
+    });
+    dots.forEach((dot) => {
+      dot.classList.remove("active");
+    });
+    slides[index].style.display = "block";
+    dots[index].classList.add("active");
+  }
+
+  function nextSlide() {
+    slideIndex = (slideIndex + 1) % slides.length;
+    showSlide(slideIndex);
+  }
+
+  // Initial display
+  showSlide(slideIndex);
+
+  // Auto slide change every 3 seconds
+  setInterval(nextSlide, 3000);
+
+  // Dot navigation
+  dots.forEach((dot, index) => {
+    dot.addEventListener("click", () => {
+      slideIndex = index;
+      showSlide(slideIndex);
+    });
+  });
+});

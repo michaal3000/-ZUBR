@@ -316,11 +316,76 @@ header .nav-button:hover {
   min-height: 100vw;
   width: 1000px;
 }
+.roadmap .line {
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 2px;
+  background-color: #ccc;
+  transform: translateX(-50%);
+}
+.roadmap .point {
+  position: relative;
+  margin-left: 20px;
+}
+.roadmap .date {
+  left: -30px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  color: #333;
+}
+.roadmap .description {
+  left: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #333;
+}
+.roadmap .point::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #ccc;
+  border-radius: 50%;
+  transform: translateY(-50%);
+}
 
 .wildlife {
   background-color: darkgreen;
-  width: 1000px;
   min-height: 100vw;
+}
+.wildlife .carousel-container {
+  position: relative;
+  width: 100%;
+  max-width: 600px; /* Adjust as needed */
+  margin: 0 auto;
+}
+.wildlife .carousel {
+  display: flex;
+  overflow: hidden;
+}
+.wildlife img {
+  width: 100%;
+  display: block;
+}
+.wildlife .dots-container {
+  text-align: center;
+  margin-top: 10px;
+}
+.wildlife .dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+}
+.wildlife .dot.active {
+  background-color: #333;
 }
 
 footer {
