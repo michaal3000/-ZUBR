@@ -27,7 +27,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  animation: gradient-animation 8s infinite;
+  animation: gradient-animation 30s infinite;
   z-index: -1;
 }
 
@@ -58,7 +58,8 @@ button {
 }
 
 header {
-  position: fixed;
+  position: sticky;
+  z-index: 10;
   top: 0;
   background-color: #72411b;
   border-bottom: 5px solid #3d1a00;
@@ -67,6 +68,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+header #check {
+  display: none;
 }
 header .logo {
   margin: 20px;
@@ -96,6 +100,12 @@ header .nav-button:hover {
   flex-direction: column;
   max-width: 1280px;
   margin: auto;
+}
+
+.title {
+  font-size: 3rem;
+  color: #3d1a00;
+  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
 }
 
 .homep {
@@ -141,8 +151,8 @@ header .nav-button:hover {
 .homep .description img {
   border-radius: 50%;
   border: solid #3d1a00 3px;
-  width: 40%;
-  height: 40%;
+  width: 350px;
+  height: 350px;
   box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
   -webkit-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
   -moz-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
@@ -150,7 +160,6 @@ header .nav-button:hover {
 .homep .description p {
   font-size: 1.5rem;
   color: #3d1a00;
-  border-radius: 10px;
   padding: 10px;
   margin: 20px;
 }
@@ -161,19 +170,17 @@ header .nav-button:hover {
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background-color: yellowgreen;
-  min-height: 100vw;
+  padding-bottom: 50px;
+}
+.info .result {
+  width: 360px;
+  height: 120px;
 }
 .info .info-header {
   display: flex;
   flex-direction: row;
   justify-content: center;
   align-items: center;
-}
-.info .info-header h2 {
-  font-size: 3rem;
-  color: #3d1a00;
-  text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
 }
 .info .info-header #live-dot {
   width: 10px;
@@ -211,18 +218,24 @@ header .nav-button:hover {
   }
 }
 .info .crypto-container #crypto-table {
-  border: 5px #1bfd9c solid;
+  border: 5px #3d1a00 solid;
+  border-radius: 5px;
   border-collapse: collapse;
   width: 55%;
   box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
   -webkit-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
-  -moz-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79) th, td;
-  -moz-box-shadow-border: 2px #004439 solid;
-  -moz-box-shadow-padding: 5px;
-  -moz-box-shadow-font-size: 1.4rem;
-  -moz-box-shadow-color: #3d1a00;
-  -moz-box-shadow-font-weight: 700;
-  -moz-box-shadow-background-color: #14787d;
+  -moz-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+}
+.info .crypto-container #crypto-table .th,
+.info .crypto-container #crypto-table .td {
+  border: 2px #3d1a00 solid;
+  padding: 5px;
+  font-size: 1.4rem;
+  color: #3d1a00;
+  font-weight: 700;
+}
+.info .crypto-container #crypto-table tbody {
+  background-color: #14787d;
 }
 .info .crypto-container #crypto-table .positive-change {
   background-color: green;
@@ -234,8 +247,9 @@ header .nav-button:hover {
 }
 .info .crypto-container #crypto-table th {
   padding: 10px;
-  background-color: #14787d;
+  background-color: #004439;
   font-size: 1.6rem;
+  border-bottom: 2px solid #3d1a00;
 }
 .info .crypto-container .search {
   margin-left: 20px;
@@ -250,130 +264,224 @@ header .nav-button:hover {
   color: #000;
   text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.6);
 }
-.info .crypto-container .search .container-input {
-  padding: 10px;
-  background-color: #14787d;
-  border-radius: 0.6em;
-  border: solid #1bfd9c 2px;
-  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+.info .crypto-container .search .search-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-.info .crypto-container .search .container-input input {
-  font-size: 1.4rem;
-  outline: none;
-}
-.info .crypto-container .search button {
-  margin-top: 10px;
-  font-size: 15px;
-  padding: 0.7em 2.7em;
-  letter-spacing: 0.06em;
+.info .crypto-container .search .search-box .input-container {
   position: relative;
-  font-family: inherit;
-  border-radius: 0.6em;
-  overflow: hidden;
-  transition: all 0.3s;
-  line-height: 1.4em;
-  border: 2px solid #1bfd9c;
-  background: linear-gradient(to right, rgba(27, 253, 156, 0.1) 1%, transparent 40%, transparent 60%, rgba(27, 253, 156, 0.1) 100%);
-  color: #1bfd9c;
-  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
 }
-.info .crypto-container .search button:hover {
-  color: #82ffc9;
-  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
+.info .crypto-container .search .search-box .input-container .input-field {
+  height: 30px;
+  width: 250px;
+  border-radius: 30px;
+  border: 5px solid #fff;
+  padding: 8px;
+  font-size: 1.5rem;
 }
-.info .crypto-container .search button:before {
-  content: "";
-  position: absolute;
-  left: -4em;
-  width: 4em;
-  height: 100%;
-  top: 0;
-  transition: transform 0.4s ease-in-out;
-  background: linear-gradient(to right, transparent 1%, rgba(27, 253, 156, 0.1) 40%, rgba(27, 253, 156, 0.1) 60%, transparent 100%);
+.info .crypto-container .search .search-box .input-container .input-field:focus {
+  outline: none;
+  border: 5px #3d1a00 solid;
+  border-color: #3d1a00;
 }
-.info .crypto-container .search button:hover:before {
-  transform: translateX(15em);
+.info .crypto-container .search .search-box .button-search {
+  background-color: #72411b;
+  width: 66%;
+  border: 2px solid #422800;
+  margin-top: 10px;
+  border-radius: 30px;
+  box-shadow: #3d1a00 4px 4px 0 0;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 0 5px;
+  line-height: 50px;
+  text-align: center;
+  text-decoration: none;
+  -moz-user-select: none;
+       user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+.info .crypto-container .search .search-box .button-search:hover {
+  background-color: #fff;
+  color: #3d1a00;
+}
+.info .crypto-container .search .search-box .button-search:active {
+  box-shadow: #3d1a00 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+@media (min-width: 768px) {
+  .info .crypto-container .search .search-box .button-search {
+    min-width: 120px;
+    padding: 0 25px;
+  }
 }
 .info .crypto-container #searchResult {
   margin-top: 20px;
   padding: 10px;
-  background-color: yellow;
+  background-color: #fff;
   border-radius: 0.6em;
-  border: solid #1bfd9c 2px;
-  box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.4), 0 0 9px 3px rgba(27, 253, 156, 0.1);
+  border: solid #3d1a00 3px;
   font-size: 1.4rem;
+  color: #3d1a00;
+  font-weight: 700;
+}
+.info .zubr-info-mobile {
+  display: none;
+}
+.info .zubr-info {
+  position: relative;
+  font-size: 1.4rem;
+  width: 954px;
+  height: 100px;
+  margin-top: 30px;
   color: #000;
+  border: 5px #3d1a00 solid;
+  border-radius: 5px;
+  border-collapse: collapse;
+  box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+  -webkit-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+  -moz-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+}
+.info .zubr-info .tab-title {
+  border: 2px #3d1a00 solid;
+  padding: 10px 30px;
+  font-size: 1.6rem;
+  font-weight: 700;
+  background-color: #004439;
+}
+.info .zubr-info .tab-info {
+  border: 2px #3d1a00 solid;
+  padding: 10px 30px;
+  font-size: 1.2rem;
+  background-color: #14787d;
+  font-weight: 400;
+  text-align: center;
   font-weight: 700;
 }
 
 .roadmap {
-  background-color: cyan;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 24px;
+}
+.roadmap .roadmap-container {
+  display: flex;
+  align-items: center;
+  padding: 24px;
+  border-radius: 4px;
+  height: 600px;
+  width: 800px;
+  justify-content: center;
+  position: relative;
+  gap: 200px;
+}
+.roadmap .roadmap-container .date,
+.roadmap .roadmap-container .name {
   display: flex;
   flex-direction: column;
+  align-items: space-around;
+  justify-content: center;
+  width: 200px;
+  height: 100%;
+  font-size: 1.5rem;
+  color: white;
+  font-weight: 800;
+}
+.roadmap .roadmap-container .line {
+  position: absolute;
+  width: 12px;
+  height: 600px;
+  background-color: #3d1a00;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  border-radius: 10px;
+}
+.roadmap .roadmap-container .line .circle {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #3d1a00;
+  display: flex;
   justify-content: center;
   align-items: center;
-  overflow: hidden;
-  min-height: 100vw;
-  width: 1000px;
 }
-.roadmap .line {
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  width: 2px;
-  background-color: #ccc;
-  transform: translateX(-50%);
+.roadmap .roadmap-container .line .circle .roadmap-dot {
+  height: 50%;
+  width: 50%;
+  border-radius: 50%;
+  background-color: #fff;
+  z-index: 2;
 }
-.roadmap .point {
-  position: relative;
-  margin-left: 20px;
-}
-.roadmap .date {
-  left: -30px;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: bold;
-  color: #333;
-}
-.roadmap .description {
-  left: 20px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #333;
-}
-.roadmap .point::before {
+.roadmap .roadmap-container .line .circle::before {
   content: "";
   position: absolute;
+  width: 300px;
+  height: 4px;
+  background-color: #3d1a00;
   top: 50%;
-  left: -10px;
-  width: 20px;
-  height: 20px;
-  border: 2px solid #ccc;
-  border-radius: 50%;
+  left: -190px;
   transform: translateY(-50%);
+  border-radius: 5px;
+}
+.roadmap .date {
+  display: flex;
+}
+.roadmap .date-right-side {
+  display: none;
 }
 
 .wildlife {
-  background-color: darkgreen;
-  min-height: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin-bottom: 60px;
 }
 .wildlife .carousel-container {
   position: relative;
+  max-width: 900px;
   width: 100%;
-  max-width: 600px; /* Adjust as needed */
   margin: 0 auto;
+  height: 400px;
 }
 .wildlife .carousel {
   display: flex;
   overflow: hidden;
 }
-.wildlife img {
+.wildlife .img-container {
+  max-height: 400px;
+  max-width: 900px;
+  margin: auto;
   width: 100%;
+  position: absolute;
+  overflow: hidden;
+}
+.wildlife .img-container img {
+  max-width: 100%;
+  max-height: 100%;
   display: block;
+  margin: auto;
 }
 .wildlife .dots-container {
+  position: relative;
+  top: 370px;
   text-align: center;
-  margin-top: 10px;
+  width: 108px;
+  padding: 3px;
+  border-radius: 4px;
+  margin: auto;
+  background-color: rgba(211, 211, 211, 0.5);
 }
 .wildlife .dot {
   display: inline-block;
@@ -387,9 +495,14 @@ header .nav-button:hover {
 .wildlife .dot.active {
   background-color: #333;
 }
+.wildlife p {
+  font-size: 1.5rem;
+  color: #3d1a00;
+  padding: 10px;
+  margin: 20px;
+}
 
 footer {
-  position: fixed;
   bottom: 0;
   width: 100%;
   display: flex;
@@ -398,7 +511,7 @@ footer {
   border-top: 5px solid #3d1a00;
   background-color: #72411b;
   color: #fff;
-  height: 40px;
+  min-height: 40px;
 }
 footer .footer-content {
   width: 100%;
@@ -416,7 +529,92 @@ footer p {
   letter-spacing: -1px;
 }
 
+.mobile-toggle {
+  display: none;
+}
+
 @media screen and (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+  .homep .description img {
+    width: 300px;
+    height: 300px;
+  }
+  #result {
+    max-width: 330px;
+    margin-right: 20px;
+  }
+  [type=checkbox] {
+    -webkit-appearance: none;
+    display: none;
+    visibility: hidden;
+  }
+  .bar {
+    display: block;
+    position: relative;
+    cursor: pointer;
+    width: 50px;
+    height: 40px;
+  }
+  .bar span {
+    position: absolute;
+    width: 45px;
+    height: 7px;
+    background: #3d1a00;
+    border-radius: 100px;
+    display: inline-block;
+    transition: 0.3s ease;
+    left: 0;
+  }
+  .bar span.top {
+    top: 0;
+  }
+  .bar span.middle {
+    top: 17px;
+  }
+  .bar span.bottom {
+    bottom: 0;
+  }
+  .bar [type=checkbox]:checked ~ span.top {
+    transform: rotate(45deg);
+    transform-origin: top left;
+    width: 48px;
+    left: 5px;
+  }
+  .bar [type=checkbox]:checked ~ span.bottom {
+    transform: rotate(-45deg);
+    transform-origin: top left;
+    width: 48px;
+    bottom: -1px;
+  }
+  .bar [type=checkbox]:checked ~ span.middle {
+    transform: translateX(-20px);
+    opacity: 0;
+  }
+  .nav-links {
+    position: absolute;
+    display: none;
+    flex-direction: column;
+    top: 60px;
+    right: 0;
+    transform: translateX(100%);
+  }
+  .nav-links.open {
+    transform: translateX(0);
+    display: flex;
+    margin-top: 14px;
+    width: 50%;
+  }
+  .nav-links.open button {
+    width: 100%;
+    border-radius: 0;
+    margin: 1px 0;
+  }
+  .main {
+    position: relative;
+    padding: 0 16px;
+  }
   .homep {
     flex-direction: column;
     text-align: center;
@@ -424,5 +622,78 @@ footer p {
   .homep .text-container,
   .homep .description {
     width: 100%;
+  }
+  .zubr-info {
+    display: none;
+  }
+  .cut {
+    display: none;
+  }
+  .info .zubr-info-mobile {
+    display: flex;
+    flex-direction: column;
+    background-color: #1bfd9c;
+    width: 300px;
+    border: solid 5px #3d1a00;
+    overflow: hidden;
+    box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+    -webkit-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+    -moz-box-shadow: 20px 18px 8px 2px rgba(0, 0, 0, 0.79);
+  }
+  .info .zubr-info-mobile .mobile-category {
+    background-color: #004439;
+    color: #fff;
+    padding: 5px;
+    margin: auto;
+    font-size: 1.6rem;
+    width: 100%;
+    text-align: center;
+  }
+  .info .zubr-info-mobile .mobile-info {
+    background-color: #14787d;
+    padding: 5px;
+    margin: auto;
+    font-size: 1.6rem;
+    width: 100%;
+    text-align: center;
+  }
+  .roadmap .roadmap-container {
+    width: 360px;
+    padding: 0;
+  }
+  .roadmap .roadmap-container .line {
+    left: 52px;
+  }
+  .roadmap .roadmap-container .line .circle::before {
+    width: 60px;
+    left: 0px;
+    height: 10px;
+  }
+  .roadmap .roadmap-container .name {
+    padding-left: 20px;
+    font-size: 1.3rem;
+  }
+  .roadmap .roadmap-container .date {
+    display: none;
+  }
+  .roadmap .roadmap-container .date-right-side {
+    display: flex;
+    border-bottom: 3px #3d1a00 solid;
+  }
+  .wildlife {
+    margin-bottom: 160px;
+  }
+  .wildlife .dots-container {
+    top: 146px;
+  }
+  .wildlife .carousel-container {
+    max-height: 172px;
+  }
+  .wildlife .carousel-container .img-container {
+    max-height: 172px;
+  }
+  .wildlife .carousel-container .img-container img {
+    max-width: none;
+    max-height: 172px;
   }
 }/*# sourceMappingURL=styles.css.map */

@@ -15,7 +15,15 @@
         <div>
           <a class="logo">$ZUBR</a>
         </div>
-        <div class="nav-links">
+
+        <label class="bar" for="check">
+          <input type="checkbox" id="check" />
+
+          <span class="top"></span>
+          <span class="middle"></span>
+          <span class="bottom"></span>
+        </label>
+        <div id="nav-links" class="nav-links">
           <button class="nav-button" id="home-button">Home</button>
           <button class="nav-button" id="info-button">Live data</button>
           <button class="nav-button" id="roadmap-button">Roadmap</button>
@@ -25,7 +33,7 @@
     </header>
 
     <main class="main">
-      <div class="homep section" id="home-section">
+      <div class="homep" id="home-section">
         <div class="text-container">
           <p class="uptext">New ground-breaking technology</p>
           <p class="midtext">$ZUBR</p>
@@ -37,31 +45,30 @@
         <div class="description">
           <img src="./logoZ.png" />
           <p>
-            Venture into the crypto wilderness with a pioneering crypto project
-            that stands as the majestic european bison of the digital finance
-            forest. Just as the bison navigates the vast forest with strength
-            and wisdom, this project charts a path through the digital asset
-            landscape with robust security and intelligent innovation. Each
-            transaction and investment within this ecosystem is a powerful step,
-            echoing the bison's mighty presence, creating ripples of growth and
-            stability. In this realm, your assets grow with the might and grace
-            of the forest's largest inhabitant, promising a future where
-            financial prowess and digital innovation stride forward, side by
-            side."
+            Venture into the crypto wilderness and discover Forest nursery, a
+            groundbreaking crypto launchpad.Like the bison's commanding presence
+            in the forest, Forest nursery offers unparalleled strength and
+            reliability in catapulting new crypto projects to success. With its
+            sturdy infrastructure and deep-rooted connections, it provides a
+            secure and stable platform for innovative ventures to thrive, just
+            as the forest flourishes under the guardianship of its largest
+            inhabitant. Embark on your crypto journey with Forest nursery and
+            witness your project grow to towering heights amidst the lush
+            ecosystem of digital finance.
           </p>
         </div>
       </div>
-      <div class="info section" id="info-section">
+      <div class="info" id="info-section">
         <div class="info-header">
-          <h2>Live info from forest</h2>
+          <h2 class="title">Live info from forest</h2>
           <div id="live-dot"></div>
         </div>
         <div class="crypto-container">
           <table id="crypto-table">
             <thead>
-              <tr>
-                <th>Rank</th>
-                <th>Name</th>
+              <tr class="table-header">
+                <th class="cut">Rank</th>
+                <th class="cut">Name</th>
                 <th>Symbol</th>
                 <th>Price (USD)</th>
                 <th>Change (24Hr)</th>
@@ -73,62 +80,153 @@
           </table>
           <div class="search">
             <h2 id="search-title">Find current price</h2>
-            <div class="container-input">
-              <input
-                type="text"
-                placeholder="Name or symbol"
-                id="searchInput"
-                class="input"
-              />
-            </div>
+            <div class="search-box">
+              <div class="input-container">
+                <input
+                  type="text"
+                  name="text"
+                  placeholder="Name or symbol"
+                  id="searchInput"
+                  class="input-field"
+                />
+              </div>
 
-            <button id="searchButton">Search</button>
-            <div id="result" div></div>
+              <button id="searchButton" class="button-search">Search</button>
+            </div>
+            <div id="result" class="result" div></div>
+          </div>
+        </div>
+        <table class="zubr-info">
+          <thead>
+            <tr class="tab-title">
+              <th>Name</th>
+              <th>Price</th>
+              <th>Market Cap</th>
+              <th>Circulating Supply</th>
+              <th>Total Supply</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="tab-info">
+              <td>ZUBR</td>
+              <td>TBA</td>
+              <td>TBA</td>
+              <td>TBA</td>
+              <td>TBA</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="zubr-info-mobile">
+          <span class="mobile-category">Name</span>
+          <span class="mobile-info">ZUBR</span>
+          <span class="mobile-category">Price</span>
+          <span class="mobile-info">TBA</span>
+          <span class="mobile-category">Market Cap</span>
+          <span class="mobile-info">TBA</span>
+          <span class="mobile-category">Circulating Supply</span>
+          <span class="mobile-info">TBA</span>
+          <span class="mobile-category">Total Supply</span>
+          <span class="mobile-info">TBA</span>
+        </div>
+      </div>
+
+      <div class="roadmap" id="roadmap-section">
+        <h2 class="title">Roadmap</h2>
+
+        <div class="roadmap-container">
+          <div class="date">
+            <div class="date">
+              <span>Q2 2024</span>
+            </div>
+            <div class="date">
+              <span>Q3 2024</span>
+            </div>
+            <div class="date">
+              <span>Q4 2024</span>
+            </div>
+            <div class="date">
+              <span>Q1 2025</span>
+            </div>
+            <div class="date">
+              <span>Q2 2025</span>
+            </div>
+          </div>
+
+          <div class="line">
+            <div class="circle">
+              <div class="roadmap-dot"></div>
+            </div>
+            <div class="circle">
+              <div class="roadmap-dot"></div>
+            </div>
+            <div class="circle">
+              <div class="roadmap-dot"></div>
+            </div>
+            <div class="circle">
+              <div class="roadmap-dot"></div>
+            </div>
+            <div class="circle">
+              <div class="roadmap-dot"></div>
+            </div>
+          </div>
+
+          <div class="name">
+            <div class="name">
+              <span class="date-right-side">Q2 2024</span>
+              <span>"Forest nursery" launchpad testing phase</span>
+            </div>
+            <div class="name">
+              <span class="date-right-side">Q3 2024</span>
+              <span>NFT mining testnet launch</span>
+            </div>
+            <div class="name">
+              <span class="date-right-side">Q4 2024</span>
+              <span
+                >Partnership announcments and community airdrop
+                distribution</span
+              >
+            </div>
+            <div class="name">
+              <span class="date-right-side">Q1 2025</span>
+              <span>Launchpad release and $ZUBR IDO</span>
+            </div>
+            <div class="name">
+              <span class="date-right-side">Q2 2025</span>
+              <span>Expanding and scaling ZUBR ecosystem </span>
+            </div>
           </div>
         </div>
       </div>
-      <div class="roadmap section" id="roadmap-section">
-        <div class="line"></div>
-        <div class="point">
-          <div class="date">Jan 2024</div>
-          <div class="description">Event 1</div>
-        </div>
-        <div class="point">
-          <div class="date">Mar 2024</div>
-          <div class="description">Event 2</div>
-        </div>
-        <div class="point">
-          <div class="date">Jun 2024</div>
-          <div class="description">Event 3</div>
-        </div>
-        <div class="point">
-          <div class="date">Sep 2024</div>
-          <div class="description">Event 4</div>
-        </div>
-        <div class="point">
-          <div class="date">Dec 2024</div>
-          <div class="description">Event 5</div>
-        </div>
-      </div>
-      <div class="wildlife section" id="wildlife-section">
+
+      <div class="wildlife" id="wildlife-section">
+        <h2 class="title">Wildlife protection</h2>
         <div class="carousel-container">
           <div class="carousel">
-            <img
-              src="https://www.tapeciarnia.pl/tapety/normalne/255151_wydra.jpg"
-              alt="Image 1"
-            />
-            <img
-              src="https://www.schronisko.net/images/art/full/5e5c05fc640fa.jpg"
-              alt="Image 2"
-            />
-            <img
-              src="https://4.bp.blogspot.com/-jKIIkg2NtLM/UlvvnTLhsPI/AAAAAAAAAno/QTTN3_m2uwU/w1200-h630-p-k-no-nu/Hipnotyzer+S%C3%B3weczka+Puszcza+Bia%C5%82owieska+Andrzej+Rej+S%C3%B3weczka+Andrzej+Rej+Puszcza+Bia%C5%82owieska+Glaucidium+passerinum,+Eurasian+Pygmy+Owl,++Pygmy+Owl,+Eurasian+Pygmy+Owl+,+varpuspollo,+Sperlingskauz,+Sparvuggla,+Chevechette.jpg"
-              alt="Image 3"
-            />
-            <img
-              src="https://biebrzafototraper.pl/uploads/images/Gallery/ssaki/jenot/jenot-jenot-1a.jpg"
-              alt="Image 4"
-            />
+            <div class="img-container">
+              <img
+                src="https://zpppn.pl/img/images/Ciekawostki/wydra/wydra1.jpg"
+                alt="Image 1"
+              />
+            </div>
+            <div class="img-container">
+              <img
+                src="https://ocdn.eu/pulscms-transforms/1/gOnktkpTURBXy9jMWZiZTllMmZkMmFkNTA2ZGJkMWFmYjhkMTZjYWE3YS5qcGeSlQMAzIHNEDTNCR2TBc0EsM0CWA"
+                alt="Image 2"
+              />
+            </div>
+            <div class="img-container">
+              <img
+                src="https://4.bp.blogspot.com/-jKIIkg2NtLM/UlvvnTLhsPI/AAAAAAAAAno/QTTN3_m2uwU/w1200-h630-p-k-no-nu/Hipnotyzer+S%C3%B3weczka+Puszcza+Bia%C5%82owieska+Andrzej+Rej+S%C3%B3weczka+Andrzej+Rej+Puszcza+Bia%C5%82owieska+Glaucidium+passerinum,+Eurasian+Pygmy+Owl,++Pygmy+Owl,+Eurasian+Pygmy+Owl+,+varpuspollo,+Sperlingskauz,+Sparvuggla,+Chevechette.jpg"
+                alt="Image 3"
+              />
+            </div>
+            <div class="img-container">
+              <img
+                src="https://i.iplsc.com/puchaty-jenot-przed-zima/000HYHPZ7C2A9FFV-C461-F4.jpg"
+                alt="Image 4"
+              />
+            </div>
           </div>
           <div class="dots-container">
             <span class="dot"></span>
@@ -137,6 +235,17 @@
             <span class="dot"></span>
           </div>
         </div>
+        <p>
+          Investing in $ZUBR token not only offers potential financial gains but
+          also contributes to wildlife protection efforts. A portion of the
+          profits generated from $ZUBR token investments is allocated towards
+          wildlife conservation initiatives. By supporting $ZUBR, investors are
+          directly involved in safeguarding endangered species, preserving their
+          habitats, and promoting biodiversity conservation. This commitment to
+          wildlife protection reflects $ZUBR's dedication to sustainability and
+          environmental stewardship, fostering a positive impact on the natural
+          world for current and future generations.
+        </p>
       </div>
     </main>
 

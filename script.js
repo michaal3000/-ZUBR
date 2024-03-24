@@ -39,8 +39,8 @@ function populateTable(coins) {
 
     const row = tableBody.insertRow();
     row.innerHTML = `
-            <td>${coin.rank}</td>
-            <td>${coin.name}</td>
+            <td class="cut">${coin.rank}</td>
+            <td class="cut">${coin.name}</td>
             <td>${coin.symbol}</td>
             <td>${parseFloat(coin.priceUsd).toFixed(2)}</td>
             <td class="${changeClass}">${changePercent}%</td>
@@ -52,44 +52,50 @@ document.addEventListener("DOMContentLoaded", function () {
   const apiUrl = "https://api.coincap.io/v2/assets";
   const apiKey = "your_api_key";
 
-  document
-    .getElementById("searchButton")
-    .addEventListener("click", function () {
-      const searchTerm = document
-        .getElementById("searchInput")
-        .value.trim()
-        .toLowerCase();
-      if (!searchTerm) {
-        alert("Please enter a name or symbol to search.");
-        return;
-      }
+  function searchCoin() {
+    const searchTerm = document
+      .getElementById("searchInput")
+      .value.trim()
+      .toLowerCase();
+    if (!searchTerm) {
+      alert("Please enter a name or symbol to search.");
+      return;
+    }
 
-      fetch(apiUrl, {
-        method: "GET",
-        redirect: "follow",
-        headers: {
-          Authorization: `Bearer ${apiKey}`,
-          "Content-Type": "application/json",
-        },
+    fetch(apiUrl, {
+      method: "GET",
+      redirect: "follow",
+      headers: {
+        Authorization: `Bearer ${apiKey}`,
+        "Content-Type": "application/json",
+      },
+    })
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+        return response.json();
       })
-        .then((response) => {
-          if (!response.ok) {
-            throw new Error(`HTTP error! Status: ${response.status}`);
-          }
-          return response.json();
-        })
-        .then((data) => {
-          const coin = data.data.find(
-            (coin) =>
-              coin.name.toLowerCase() === searchTerm ||
-              coin.symbol.toLowerCase() === searchTerm
-          );
-          displayResult(coin);
-        })
-        .catch((error) => {
-          console.error("Error fetching data:", error);
-        });
-    });
+      .then((data) => {
+        const coin = data.data.find(
+          (coin) =>
+            coin.name.toLowerCase() === searchTerm ||
+            coin.symbol.toLowerCase() === searchTerm
+        );
+        displayResult(coin);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+
+  document.getElementById("searchButton").addEventListener("click", searchCoin);
+
+  document.addEventListener("keypress", function (e) {
+    if (e.key === "Enter") {
+      searchCoin();
+    }
+  });
 });
 
 function displayResult(coin) {
@@ -117,27 +123,59 @@ document.getElementById("home-button").addEventListener("click", function () {
   });
 });
 
+// document.getElementById("info-button").addEventListener("click", function () {
+//   document.querySelector("#info-section").scrollIntoView({
+//     behavior: "smooth",
+//   });
+// });
+
 document.getElementById("info-button").addEventListener("click", function () {
-  document.querySelector("#info-section").scrollIntoView({
+  const infoSection = document.querySelector("#info-section");
+  const scrollPosition =
+    infoSection.getBoundingClientRect().top + window.scrollY - 80;
+  window.scrollTo({
+    top: scrollPosition,
     behavior: "smooth",
   });
 });
-
 document
   .getElementById("roadmap-button")
   .addEventListener("click", function () {
-    document.querySelector("#roadmap-section").scrollIntoView({
+    const infoSection = document.querySelector("#roadmap-section");
+    const scrollPosition =
+      infoSection.getBoundingClientRect().top + window.scrollY - 80;
+    window.scrollTo({
+      top: scrollPosition,
+      behavior: "smooth",
+    });
+  });
+document
+  .getElementById("wildlife-button")
+  .addEventListener("click", function () {
+    const infoSection = document.querySelector("#wildlife-section");
+    const scrollPosition =
+      infoSection.getBoundingClientRect().top + window.scrollY - 60;
+    window.scrollTo({
+      top: scrollPosition,
       behavior: "smooth",
     });
   });
 
-document
-  .getElementById("wildlife-button")
-  .addEventListener("click", function () {
-    document.querySelector("#wildlife-section").scrollIntoView({
-      behavior: "smooth",
-    });
-  });
+// document
+//   .getElementById("roadmap-button")
+//   .addEventListener("click", function () {
+//     document.querySelector("#roadmap-section").scrollIntoView({
+//       behavior: "smooth",
+//     });
+//   });
+
+// document
+//   .getElementById("wildlife-button")
+//   .addEventListener("click", function () {
+//     document.querySelector("#wildlife-section").scrollIntoView({
+//       behavior: "smooth",
+//     });
+//   });
 
 //wildlife carousel
 document.addEventListener("DOMContentLoaded", function () {
@@ -175,4 +213,10 @@ document.addEventListener("DOMContentLoaded", function () {
       showSlide(slideIndex);
     });
   });
+});
+
+//Menu mobile
+document.getElementById("check").addEventListener("change", function () {
+  var navLinks = document.getElementById("nav-links");
+  navLinks.classList.toggle("open", this.checked);
 });
